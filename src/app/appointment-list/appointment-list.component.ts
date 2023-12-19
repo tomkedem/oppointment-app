@@ -20,14 +20,19 @@ export class AppointmentListComponent {
         title: this.newAppointmentTitle,
         date: this.newAppointmentDate
       }
+
       this.appointments.push(newAppointment)
+
       this.newAppointmentTitle = ""
-      this.newAppointmentDate = new Date()    
+      this.newAppointmentDate = new Date()   
+      
+      localStorage.setItem("apponitment", JSON.stringify(this.appointments))
     }
   }
 
   deleteAppointment(index: number){
     this.appointments.splice(index, 1)
+    localStorage.setItem("apponitments", JSON.stringify(this.appointments))
   }
 
 
